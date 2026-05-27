@@ -59,6 +59,11 @@ func (s *Server) Serve() error {
 	return http.ListenAndServe(":"+s.cfg.Port, s.router)
 }
 
+// Router exposes the internal ServeMux so external test packages can wrap it in httptest.NewServer.
+func (s *Server) Router() *http.ServeMux {
+	return s.router
+}
+
 func (s *Server) getLog(topic string) (*storage.CommitLog, bool) {
 	s.logsMu.RLock()
 	defer s.logsMu.RUnlock()
