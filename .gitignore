@@ -1,25 +1,24 @@
-# Compiled application binaries
+# application binaries
 /bin/
 mini-kafka
 *.exe
 
-# Mini-Kafka local data directories (Do NOT commit the append-only logs!)
+local data directories 
 /data/
 
-# Go workspace and test cache files
+# workspace and test cache files
 go.work
 go.work.sum
 coverage.out
 
-# IDE specific files
+# ide specific files
 .idea/
 .vscode/
 *.swp
 *.swo
 
-# OS specific files
+# os specific files
 .DS_Store
 Thumbs.db
 
-# Environment variables (if you add them later)
 .env
