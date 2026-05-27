@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  broker1:
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      - BROKER_ID=1
+      - PORT=8081
+      - DATA_DIR=/data/broker1
+      - NODES=1:broker1:8081,2:broker2:8082,3:broker3:8083
+    volumes:
+      - broker1_data:/data/broker1
+    networks:
+      - kafka-net
+
+  broker2:
+    build: .
+    ports:
+      - "8082:8082"
+    environment:
+      - BROKER_ID=2
+      - PORT=8082
+      - DATA_DIR=/data/broker2
+      - NODES=1:broker1:8081,2:broker2:8082,3:broker3:8083
+    volumes:
+      - broker2_data:/data/broker2
+    networks:
+      - kafka-net
+
+  broker3:
+    build: .
+    ports:
+      - "8083:8083"
+    environment:
+      - BROKER_ID=3
+      - PORT=8083
+      - DATA_DIR=/data/broker3
+      - NODES=1:broker1:8081,2:broker2:8082,3:broker3:8083
+    volumes:
+      - broker3_data:/data/broker3
+    networks:
+      - kafka-net
+
+volumes:
+  broker1_data:
+  broker2_data:
+  broker3_data:
+
+networks:
+  kafka-net:
+    driver: bridge
