@@ -111,9 +111,12 @@ Because replicating distributed logs requires Raft/Paxos (which is out of scope 
 
 ---
 
-### 9. TESTING & 10. CI/CD AUTOMATION
-
+### 9. TESTING
 The `stress_test.go` spins up `50` concurrent goroutines, each rapidly publishing `100` messages, mimicking a thundering herd. It validates thread-safety by verifying zero dropped messages, zero corrupted payloads, and proper index incrementation.
+
+---
+
+### 10. CI/CD AUTOMATION
 
 The GitHub Actions (`ci.yml`) runs `go test -race ./...`. Go's Race Detector dynamically instruments memory accesses and will fail the build immediately if two goroutines access the same memory location without synchronization.
 
