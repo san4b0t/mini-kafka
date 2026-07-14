@@ -102,7 +102,7 @@ Locks are highly localized. A lock is never held while making a network call, pr
 The Docker Compose configuration spins up three independent containers (`broker1`, `broker2`, `broker3`) interconnected via an internal Docker bridge network (`kafka-net`).
 
 **Routing Strategy (Topic Ownership):**
-Because replicating distributed logs requires Raft/Paxos (which is out of scope for a single sprint project), we utilize **Partition Ownership via Consistent Hashing**.
+Because replicating distributed logs requires Raft/Paxos this project utilizes partition ownership via consistent hashing.
 
 1. When any broker receives a request for a topic (e.g., `logs`), it hashes the topic string: `hash("logs") % 3`.
 2. Let's say the hash output means Node 2 is the owner.
