@@ -1,4 +1,4 @@
-# Mini-Kafka (Distributed Message Queue)
+# Distributed Message Queue
 
 ![Build Status](https://github.com/san4b0t/mini-kafka/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
